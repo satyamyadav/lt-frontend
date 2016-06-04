@@ -52,7 +52,7 @@ var fake = fn.fake;  // for fake data
         var hostName = req.get('host');
         //hostName = Math.max(hostName.indexOf('localhost'), hostName.indexOf('domain.com')) > -1 ? hostName : 'domain.com';
         //FOR NOW IT NEEDS TO USE HOSTNAME IN ALL CONDITIONS, change it later
-        hostName = Math.max(hostName.indexOf('localhost'), hostName.indexOf('scrietossdg.herokuapp.com')) > -1 ? hostName : 'scrietossdg.herokuapp.com';
+        hostName = Math.max(hostName.indexOf('localhost'), hostName.indexOf('site.com')) > -1 ? hostName : 'site.com';
         var hostProtocol = hostName.indexOf('localhost') > -1 ? req.protocol : 'https';
         return [req.protocol, '://', hostName, '/', link].join('');
       }
