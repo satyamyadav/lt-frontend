@@ -46,7 +46,7 @@ app.use(require('cookie-parser')());
 var session = require('express-session');
 
 var options = {
-  secret: (new Buffer('ossdg-webapp')).toString('base64'),
+  secret: (new Buffer('lt-webapp')).toString('base64'),
   saveUninitialized: false,
   resave: false,
   cookie: {maxAge: 24 * 60 * 60 * 1000 /* one day in microseconds */}
@@ -58,7 +58,7 @@ if (process.env.NODE_ENV === 'production') {
   options.store = new RedisStore({
     host: 'localhost',
     port: 6379,
-    prefix: 'ossdg.sess.'
+    prefix: 'lt.sess.'
 
   });
 } else {

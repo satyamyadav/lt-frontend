@@ -8,3 +8,4 @@ logs
 heroku-defaults
 .sass-cache
 *.log
+storage
