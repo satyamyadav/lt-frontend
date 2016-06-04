@@ -1,0 +1,135 @@
+<% var updateProfileFormId = componentId('updateProfileForm') %>
+
+<div id="<%= updateProfileFormId %>"  data-user-id="<%= me.id %>">
+        <script>
+            $(function () {
+                        app.components.updateProfileForm($("#<%= updateProfileFormId %>"));
+                    }
+            );
+        </script>
+
+<% if (me && me.id == user.id) { %>
+      <div class="panel panel-default sign-up margin-bottom-1" style="">
+        <div class="panel-heading text-center">
+          <div class="panel-title">Update</div>
+            <!-- <div class="">
+              <a id="signinlink" href="#">Sign In</a>
+            </div> -->
+          </div>  
+          <div class="panel-body" >
+            <form id="signup-form" class="form-horizontal" role="form">
+              <div id="signupalert" style="display:none" class="alert alert-danger">
+                <p>Error: Please try again</p>
+                <span></span>
+              </div>
+              <div class="form-group">
+<!--                 <label for="firstname" class="col-md-3 control-label">Name</label> -->
+                <div class="col-sm-12">
+                  <input type="text" class="form-control user-full-name" name="firstname" placeholder="Full Name" value="<%= me.full_name %>">
+                </div>
+              </div>
+              <div class="form-group">
+<!--                 <label for="email" class="col-md-3 control-label">Email</label> -->
+                <div class="col-sm-12">
+                  <input type="text" class="form-control user-email" name="email" placeholder="Email Address" value="<%= me.email %>" >
+                </div>
+              </div>
+
+              <!-- <div class="form-group">
+                 <label for="firstname" class="col-md-3 control-label">Name</label> 
+                <div class="col-sm-12">
+                  <input type="text" class="form-control username" name="username" placeholder="username">
+                </div>
+              </div> -->
+              
+<!--               <div class="form-group">
+
+                <div class="col-sm-12">
+                  <input type="password" class="form-control user-password" name="passwd" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="password" class="form-control user-confirm-password" name="password_confirm" placeholder="Confirm Password">
+                </div>
+              </div>
+ -->
+              <div class="details-form">
+                
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="bio" placeholder="Bio" value="<%= me.details.bio %>" >
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <div class="col-sm-12">
+                <select name="gender" class="form-control">
+                  <option>Gender</option>
+                  <option value="Male">Male</option>
+                  <option value="Female">Female</option>
+                  <option value="Others">Others</option>
+                </select>
+                </div>
+              </div> -->
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control" name="department" placeholder="Department" value="<%= me.details.department %>" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="number" maxlength="4" class="form-control " name="addmission_year" placeholder="Year of Admission" value="<%= me.details.admission_year %>">
+                </div>
+              </div>
+               
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="number" maxlength="4" class="form-control " name="passing_year" placeholder="Year of Passing" value="<%= me.details.passing_year %>">
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="skills" placeholder="Skills" value="<%= me.details.skills %>">
+                </div>
+              </div>
+
+              <div id="image-preview" class="row">
+                <img class="image-resposive" style="height:200px;width:200px" src="<%= genUrl(me.picture) %>">
+              </div>
+              <div class="form-group upload-picker margin-top-20 margin-bottom-20">
+                <div class="col-sm-12">
+                  
+                  <label>Add Profile picture</label>
+                  <input required type="file" id="uploadInput">
+                </div>
+              </div>
+
+
+              </div>
+
+              <style type="text/css">
+                  #image-preview img {
+                      width: 300px;
+                      height: 300px;
+                      margin: 0 auto;
+                  }
+              </style>  
+               
+              
+
+
+              <div class="form-group">
+              <!-- Button -->                                        
+                <div class="col-sm-12">
+                  <button type="button" class="btn btn-fa signupBtn"><i class="icon-hand-right"></i> &nbsp; Update</button> 
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+<% } %>
+
+    </div>
+    

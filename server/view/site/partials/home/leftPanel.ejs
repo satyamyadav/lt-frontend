@@ -1,0 +1,71 @@
+<div>
+	<!-- your div coontent here -->
+
+			<div class="card card-default">
+				<div class="card-heading">
+					<h3 class="card-title">new ideas</h3>
+				</div>
+
+				<div class="list-group">
+					<% _.forEach(newIdeas, function (idea, index) { %> 
+						<% if (idea.type == 'idea') { %> 
+						<a href="<%= genUrl('projects/' + idea.id) %>" class="list-group-item">
+							<%= idea.title %>
+						</a>
+						</li>
+						<% } %>
+					<% }) %>
+				</div>
+					
+			</div>
+
+			
+			<div class="card card-default">
+				<div class="card-heading">
+					<h3 class="card-title">top Projects</h3>
+				</div>
+
+				<div class="list-group">
+					<% _.forEach(topProjects, function (project, index) { %> 
+						<% if (project.type == 'project') { %> 
+						<a href="<%= genUrl('projects/' + project.id) %>" class="list-group-item">
+							<%= project.title %>
+						</a>
+						</li>
+						<% } %>
+					<% }) %>
+				</div>
+					
+			</div>
+
+			
+			<div class="card card-default">
+				<div class="card-heading">
+					<h3 class="card-title">top posts</h3>
+				</div>
+
+				<div class="list-group">
+					<% _.forEach(topPosts, function (post, index) { %> 
+						<% if (post.type == 'blog') { %> 
+						<a href="<%= genUrl('projects/' + post.id) %>" class="list-group-item">
+							<%= post.title %>
+						</a>
+						</li>
+						<% } %>
+					<% }) %>
+				</div>
+					
+			</div>
+
+			
+
+
+
+	<!-- keep all content up and keep scroll lock at bottom -->	
+
+	<% var onMobile = ['mobile', 'table'].indexOf(uaData.device.type) > -1 %>
+
+	<% if(!onMobile) { %> 
+	<span class="scroll-lock hidden-sm hidden-xs" style="color:rgba(0,0,0,0)">....</span>
+  <% } %>
+</div>

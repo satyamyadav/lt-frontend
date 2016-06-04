@@ -1,0 +1,25 @@
+<% var searchBoxId = componentId('searchBox') %>
+<% var pageName = pagename %>
+
+<div id="<%= searchBoxId %>">
+  
+<div class="row">
+  <div class="col-xs-12">
+    <input type="text" class="form-control input-search" placeholder="search" aria-label="Text input with multiple buttons">
+
+  </div>
+</div>
+<div class="search-error">
+     <ul class="dropdown-menu center" style="padding:5px; text-align:center">
+       <li>
+         <p>No result found</p>
+         <p></p>
+       </li>
+       <li role="separator" class="divider"></li>
+       <li>
+         <button class="btn btn-fa-pink close-btn"> Close </button>
+       </li>
+     </ul>
+   </div>
+
+</div>

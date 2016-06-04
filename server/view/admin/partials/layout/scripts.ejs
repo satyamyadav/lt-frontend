@@ -1,0 +1,39 @@
+<script src="/js/site.js"></script>
+
+<script type="text/javascript">
+
+    // toastr and loader
+
+    toastr.options = {
+        closeButton: true,
+        progressBar: false,
+        showMethod: 'slideDown',
+        timeOut: 4000,
+        closeMethod: 'fadeOut',
+        closeDuration: 300,
+        closeEasing: 'swing',
+        showEasing: 'swing',
+        hideEasing: 'linear',
+        //preventDuplicates: true,
+    };
+    // toastr.warning('The Ressponsive Theme', 'Welcome to Dashboard');
+    // toastr.success('The Ressponsive Theme', 'Welcome to Dashboard');
+    // toastr.error('The Ressponsive Theme', 'Welcome to Dashboard');
+    // toastr.info('The Ressponsive Theme', 'Welcome to Dashboard');
+
+    NProgress.configure({
+       minimum: 0.1,
+       easing: 'ease',
+       speed: 800,
+       trickle: true,
+       trickleRate: 0.08,
+       trickleSpeed: 800,
+       showSpinner: false,
+       parent: '#sub-header',  //body by default
+
+   });
+   NProgress.start();
+   NProgress.inc(0.2); // This will get the current status value and adds 0.2 until status is 0.994
+   NProgress.done();
+
+</script>

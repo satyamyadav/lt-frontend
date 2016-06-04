@@ -1,0 +1,93 @@
+@mixin steps-icon($bg) {
+  color: $bg;
+  background-color: $bg;
+  background-image: url(/img/checkmark-32.png);
+  background-position: center center;
+  background-size: cover;
+  border: 3px solid $zam-white;
+  border-radius: 50%;
+}
+
+@mixin steps-icon-connect() {
+  content: "";
+  position: relative;
+  top: 18px;
+  left: -20px;
+  display: block;
+  border: 1px solid $zam-white;
+  border-radius: 2px;
+  background: $zam-white;
+  width: 28px;
+}
+
+
+
+
+#form-steps-container {
+
+  .content {
+    min-height: 100px;
+    background-color: #fff;
+    .body {
+      width: 100%;
+      height: auto;
+      padding: 15px;
+      position: relative;
+    }    
+  }
+
+  .actions {
+    display: none;
+  }
+
+  .steps {
+    ul {
+      li {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        margin: 10px;
+
+        &::before {
+          @include steps-icon-connect();
+        };
+        &:first-child {
+          &::before {
+            content: none;
+          };
+        };
+
+        a {
+          &:focus {
+            outline: none;
+          };
+        }
+      }
+      .first {
+        a {
+          @include steps-icon(#fff);
+        }
+      }
+      .last {
+        a {
+          @include steps-icon(#fff);
+        }
+      }
+      .current {
+        a {
+          @include steps-icon(#fff);
+        }
+      }
+      .done {
+        a {
+          @include steps-icon($zam-white);
+        }
+      }
+      .disabled {
+        a {
+          @include steps-icon(#fff);
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,17 @@
+
+
+<% _.forEach(comments, function(comment){ %> 
+		<ul class="list-group margin-bottom-2">
+			<li class="list-group-item" style="border:none">
+				
+			<i class="fa fa-user"></i>
+			<span>
+			<a href="<%= genUrl('user/' + comment.user.id) %>">
+			<%= comment.user.full_name %>
+			</a>
+				
+			  &nbsp; <%= comment.comment %></span>
+			</li>
+		</ul>
+
+<% }) %>

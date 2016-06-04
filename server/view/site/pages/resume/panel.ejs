@@ -1,0 +1,112 @@
+<div id="panel" data-page-name="<%= pagename %>">
+	
+<% var iCardPageId = componentId('iCardPage') %>
+
+<div id="<%= iCardPageId %>"  >
+  <script>
+    $(function () {
+      app.components.iCardPage($('#<%= iCardPageId %>'));
+    });
+  </script>
+    
+
+
+	<div class="container padding-top-100">
+
+
+	<div class="col-md-3 col-sm-12 padding-left-0 hidden-print">
+		
+		<% if (me && (me.id == user.id) ) { %>
+			<%- include(partials.updateResumeForm) %>
+			
+		
+		<% } else if (me && !(me.id == user.id) ) { %>
+				
+			<div class="margin-top-50 hidden-print">
+
+		  <a  class="btn btn-large margin-top-30" href="<%= genUrl('resume/' + me.username ) %>" ><i class="fa "></i><span>Generate your Resume</span></a>
+			
+			</div>
+		<% } else if (!me) { %>
+		<div class="margin-top-50 margin-bottom-50 hidden-print">
+			<h4>
+				Login for your Resume
+				
+			</h4>
+		  <a  class="btn btn-large signin-link "><i class="fa "></i><span>Login/Signup</span></a>
+			
+		</div>
+		<% } %>
+
+
+	</div>
+
+
+
+
+	<div class="col-md-9 col-sm-12 ">
+		<%- include(partials.resumeTemplate) %>
+	
+
+<!-- 
+		<button type="button" class="btn btn-primary btn-lg btn-block fb-bg share-btn">
+		  <i class="fa fa-facebook text-blue " style="margin-right:10%;"></i>share on Facebook
+		</button> -->
+	
+
+	</div>
+
+
+<!-- 		<div id="preview">
+			<ul class="list-group">
+				            		<li class="list-group-item text-center"><b>Odie Brown</b></li>
+
+												
+
+				                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> Tue Jan 12 2016 12:50:51 </li>
+				                
+				                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department</strong></span> B.Tech Computer Science</li>
+
+				                <li class="list-group-item text-right">  to 2016</li>
+
+				            <div class="panel panel-default">
+				            	<div class="panel-heading">
+				            	Bio
+				            	</div>
+				            	<div class="panel-body">
+				            		<p>i am a web developer, linux and foss lover and an artist</p>
+				            	</div>
+				            </div>
+
+				            <div class="panel panel-default">
+				            	<div class="panel-heading">
+				            	Skills
+				            	</div>
+				            	<div class="panel-body">
+				            		<p>html, css, nodejs, mysql</p>
+				            	</div>
+				            </div>
+				        </ul>
+		</div>
+		<hr />
+		<hr />
+		<h1>output</h1>
+		<div id="canvas">
+			
+		</div>
+
+		<div id="image-preview" class="row"></div>
+		<div class="form-group upload-picker margin-top-20 margin-bottom-20">
+		  <div class="col-sm-12">
+		    
+		    <label>Add Profile picture</label>
+		    <input required type="file" id="uploadInput">
+		  </div> -->
+		
+
+
+
+
+		</div>
+	</div>
+</div>

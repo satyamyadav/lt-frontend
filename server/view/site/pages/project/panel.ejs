@@ -1,0 +1,18 @@
+<section id="panel" data-page-name="<%= pagename %>">
+	<% var onMobile = ['mobile', 'table'].indexOf(uaData.device.type) > -1 %>
+	<%- include(partials.projectCardLg, {project: projects.projects}) %>
+	
+	<% if(onMobile) { %> 
+	<div class="container padding-left-0 padding-right-0 padding-top-30">
+	<% } else { %>
+	<div class="container padding-top-30 margin-top-60">
+	<% } %>
+		
+			<div>
+				<%- include(partials.rightPanel) %>
+			</div>
+
+	</div>
+
+	<%- include(partials.scrollTopBtn) %>
+</section>

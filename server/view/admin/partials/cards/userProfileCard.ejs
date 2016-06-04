@@ -1,0 +1,75 @@
+<% var profileCardId = componentId('profileCard') %>
+
+<div id="<%= profileCardId %>" >
+  <script>
+  $(function () {
+    app.components.profileCard($('#<%= profileCardId %>'));
+  });
+  </script>
+
+
+<div class="padding-15">
+  <div class="row">
+    <div class="col-sm-9">
+      <div class="row">
+        <div class="col-sm-2 padding-right-0">
+          <a class="" href="<%= genUrl(user.full_name) %>">
+          <img title="<%= user.full_name %>" class="img-square-120" src="<%= genUrl(user.picture) %>" >
+        </a>
+        </div>
+        <div class="col-sm-10">
+          <h3><%= user.full_name %></h3>
+          <p><%= user.details.bio %></p>
+          <div class="row margin-top-20 text-center">
+              <div class="col-sm-3">
+                <p class="text-capitalize">
+                  total liabilities
+                </p>
+                <p class="red-text">
+                  <%= user.total_liabilites %>
+                </p>
+              </div>
+
+              <div class="col-sm-3">
+                <p class="text-capitalize">
+                  assets
+                </p>
+                <p class="green-text">
+                  <%= user.total_assets %>
+                </p>
+              </div>
+
+              <div class="col-sm-3">
+                <p class="text-capitalize">
+                  net worth
+                </p>
+                <p class="red-text">
+                  <%= user.net_worth %>
+                </p>
+              </div>
+
+            </div>
+        </div>
+      </div>
+   
+    </div>
+    <div class="col-sm-3">
+    <select class="form-control add-details-select">
+      <option value="" disabled selected>Add details</option>
+      <% _.forEach(assets_categories, function(cat) { %>
+        <option class="text-capitalize" value="<%= cat.id %>"><%= cat.name %></option>
+      <% }) %>
+    <!-- <option value="1">Add details</option>
+    <option>Bank Accounts</option>
+    <option>Pension Product</option>
+    <option>Other Saving Product</option>
+    <option>Direct Brokerage Account</option>
+    <option>Provident Fund</option>
+    <option>Property</option>
+    <option>Mutual Fund Investments</option>
+    <option>Gold</option> -->
+    </select>
+    </div>
+  </div>
+</div>
+</div>

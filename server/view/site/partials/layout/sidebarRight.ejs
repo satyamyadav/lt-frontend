@@ -1,0 +1,101 @@
+<% var name = me ?  (me.full_name && me.full_name.length > 0 ? me.full_name : me.username) : '' %>
+
+<div id="right-sidebar">
+<script>
+  
+  $(function () {
+    app.components.sidebarRight($('#right-sidebar'));
+  });
+</script>    
+    <div class="sidebar-container">
+
+ 			<!-- for mobile  -->
+<!-- 
+ 			    <div class="row hidden-md hidden-lg hidden-sm hidden-xs ">
+ 			      <div class="col-xs-2">
+ 			        <div class=" ">
+ 			          
+ 			        <a href="#" class="text-white"><i class="fa fa-bars fa-2x"></i></a>
+ 			        </div>
+ 			      </div>
+ 			      <div class="col-xs-10">
+ 			        <div class="row">
+ 			          <div class="col-xs-12 padding-5 padding-left-10 mobile-brand-logo">
+ 			            <a class="" href="/">
+ 			            SCRIET OSSDG
+ 			             <img src="/img/logo.png"> </a>
+ 			          </div>  
+ 			           <div class="col-xs-12 search-box-nav" style="display:none">
+ 			            <%#- include(partials.searchBox) %>
+ 			          </div> 
+ 			        </div>
+ 			      </div>
+ 			    </div>
+ 			  
+ 			 -->
+
+
+ 			  <div class="sudo-div"></div>
+ 			      <div class="mobile-menu row">
+ 			      	
+ 			      	<div class="list-group">
+
+ 			  <% if (me) { %>
+
+ 			  <% var profileUrl = !_.isUndefined(me.username) && !_.isNull(me.username) ? me.username : 'user/' + me.id %>
+
+ 			      	  <a href="<%= genUrl(profileUrl) %>" class="list-group-item">
+ 			      	    <img title="<%= name %>" class="img-circle img-responsive" src="<%= genUrl(me.picture) %>" style="margin: 0 auto">
+ 			      	  </a>
+ 			      	  <a href="<%= genUrl(profileUrl) %>" class="list-group-item">
+ 			          	<i class="fa fa-github btn-round"></i>
+ 			          	<%= name %>
+ 			          </a>
+ 			          <a href="#" class="list-group-item logout">
+ 			          	<i class="fa fa-chevron-right btn-round"></i>
+ 			          	<span>Logout</span>
+ 			          </a>
+
+<!-- 
+								<a href="<%= genUrl('icard/' + me.username) %>" class="list-group-item">
+									<i class="fa fa-info btn-round"></i>
+									<span> i-card </span>
+								</a> -->
+
+								<a href="<%= genUrl('resume/' + me.username) %>" class="list-group-item">
+									<i class="fa fa-info btn-round"></i>
+									<span> resume </span>
+								</a>
+ 			      	  
+ 			      	  <a href="#" class="list-group-item update-profile-btn">
+ 			      	  	<i class="fa fa-chevron-right btn-round"></i>
+ 			      	  	Update Profile
+ 			      	  </a>
+ 			        <% } %>
+
+	      	  		<a href="<%= genUrl('') %>" class="list-group-item">
+	      	  			<i class="fa fa-home btn-round"></i>
+	      	  		 	<span>	Home </span>
+	      	   		</a>
+	      	  		<a href="<%= genUrl('about') %>" class="list-group-item">
+	      	  			<i class="fa fa-info btn-round"></i>
+	      	  			<span> About </span>
+	      	  		</a>
+	      	  		<a href="https://scrietossdg.github.io" class="list-group-item">
+	      	  			<i class="fa fa-github btn-round"></i>
+	      	  			<span> Github </span>
+	      	  		</a>
+
+ 			      	</div>
+ 			      
+ 			      </div>
+ 	
+
+
+       
+
+    </div>
+
+
+
+</div>

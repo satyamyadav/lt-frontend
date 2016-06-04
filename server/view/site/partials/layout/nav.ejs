@@ -1,0 +1,92 @@
+<% var name = me ?  me.full_name : '' %>
+<% var user = user ? user : '' %>
+<div id="nav">
+  <script>
+    $(function () {
+      app.components.navController($('#nav'));
+    });
+  </script>
+  <div class="navbar-std-flat navbar-fixed-top">
+    <div class="container">
+      <div class="col-xs-6 col-md-2 padding-left-0">
+        <a class="" href="/">
+          <h4>Learn Together</h4>
+        </a>
+      </div>
+      <div class="col-md-6 hidden-xs hidden-sm">
+      <!--   <div class="row">
+          <div class="col-xs-8 col-xs-push-4 search-box-nav search" > 
+            <%#- include(partials.searchBox) %>
+            
+          </div>
+          <div class="col-xs-8 col-xs-push-4 search-box-banner" style="display:none"> 
+            <%#- include(partials.searchBox) %>
+            
+          </div>
+        </div>
+         -->
+      </div>
+      <div class="col-xs-6 col-md-4">
+
+        <div class="btn-toolbar" role="toolbar" aria-label="...">
+          
+          <div class="btn-group" role="group" aria-label="...">
+            <a href="/" class="mobile-menu-btn btn-round btn-std-nav"><i class="fa fa-bars"></i></a>
+          </div>
+          <% if (me) { %>
+         
+          <div class="btn-group" role="group" aria-label="...">
+
+   
+             <a class="" href="/user/<%= me.id %>">
+             
+             <img title="<%= name %>" class="img-circle img-responsive" src="<%= genUrl(me.picture) %>" style="margin: 0 auto; width: 30px; height:30px ">
+             </a>
+  <!--             <ul class="dropdown-menu-nav margin-top-10 text-center">
+                 <li><a href="/user/<%= me.id %>"><i class="fa fa-user pull-left"></i>Profile</a></li>
+                 <li role="separator" class="divider"></li>
+                 <li><a href="#"><i class="fa fa-cog pull-left"></i>Settings</a></li>
+                 <li role="separator" class="divider"></li>
+                 <li class="logout"><a href="#"><i class="fa fa-sign-out pull-left"></i> Logout</a></li>
+              </ul> -->
+          </div>
+            <%} else { %>
+          <div class="btn-group" role="group" aria-label="...">
+
+            <a  class="btn-round btn-std-nav signin-link "><i class="fa fa-sign-in"></i></a>
+          </div> 
+           <% } %>
+          <div class="btn-group hidden-xs hidden-sm" role="group" aria-label="...">
+<!--             <a href="/" class="btn-round btn-std-nav add-project-btn"><i class="fa fa-plus"></i></a> -->
+            <a class="dropdown-toggle btn-round btn-std-nav" data-toggle="dropdown" href="#" id="addBtns">
+              <i class="fa fa-plus"></i>
+             </a>
+             <ul class="dropdown-menu padding-0" aria-labelledby="addBtns">
+             
+              <li>
+                <%- include(partials.addProjectBtn) %>
+              </li>
+              
+              <li>
+                <%- include(partials.addIdeaBtn) %>
+              </li>
+              
+              <li>
+                <%- include(partials.addPostBtn) %>
+              </li>
+
+            </ul>
+          </div>
+          <div class="btn-group" role="group" aria-label="...">
+            <a href="/" class="btn-round btn-std-nav "><i class="fa fa-search"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  <%- include(partials.sidebarRight) %>
+</div>
+
+
+
+

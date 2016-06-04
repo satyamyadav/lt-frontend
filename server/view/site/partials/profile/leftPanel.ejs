@@ -1,0 +1,46 @@
+	
+<%# var profileBannerId = componentId('profileBanner') %>
+
+    
+<div class="card">
+		
+
+    <!--left col-->
+  <ul class="list-group">
+  		<li class="list-group-item text-center">
+  		<img title="profile image" class="img-circle img-responsive" src="<%= genUrl(user.picture) %>" style="margin: 0 auto; width: 150px; height:150px; border:3px solid #B3B8B9 ">
+  		</li>
+  		<li class="list-group-item text-center"><b><%= user.full_name %></b></li>
+
+			<% var timeStamp = user.created_at.split('G')[0] %>
+
+      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Joined</strong></span> <%= timeStamp %></li>
+<% if(user.details) { %>       
+      <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department</strong></span> <%= user.details.department %></li>
+
+      <li class="list-group-item text-right"> <%= user.details.admission_year %> to <%= user.details.passing_year %></li>
+
+  <div class="panel panel-default">
+  	<div class="panel-heading">
+  	Bio
+  	</div>
+  	<div class="panel-body">
+  		<p><%= user.details.bio %></p>
+  	</div>
+  </div>
+
+  <div class="panel panel-default">
+  	<div class="panel-heading">
+  	Skills
+  	</div>
+  	<div class="panel-body">
+  		<p><%= user.details.skills %></p>
+  	</div>
+  </div>
+ <% } %>
+
+	</div>
+
+
+
+

@@ -1,0 +1,57 @@
+<% var project = projects.projects %>
+<% var timeStamp = !_.isUndefined(project.created_at)? project.created_at.split('G')[0] : '' %>
+
+<% var avatar = !_.isUndefined(project.user.picture) ? project.user.picture : 'images/user.png' %>
+<div class="col-sm-12">
+	<div class="card card-default ">
+	  <div class="card-heading">
+	    <h3 class="card-title"><%= project.title %></h3>
+			<small> on <%= timeStamp %></small>
+	  </div>      
+
+
+	<div class="card-body">  
+
+	<div class="">
+		<b>Short Description: </b><%= project.short_description %>
+		<hr>
+	</div>
+
+	<% if (!(project.type == 'blog')) { %> 
+	<div class="">
+		<b>idea: </b><%= project.idea %>
+		<hr>
+	</div>
+	<% } %> 
+
+
+	<% if(!_.isNull(project.details)) { %> 
+	  <% _.forEach(project.details.details, function(detail){ %> 
+	    <div class="">
+	    	<% if (project.type == 'blog') { %> 
+	    		<%= detail %>
+	    	<% } else { %> 
+	    	<b><%= detail.title %>: </b> <%= detail.description %> 
+	    	<% } %>
+	    <hr>
+	    </div>
+	  <% }) %> 
+	<% } %>  
+
+
+	<% if(project.image_urls.images.length > 0) { %>
+	<h3>Images</h3>
+	<% _.forEach(project.image_urls.images, function(img){ %> 
+	<div class="project-img-container container-parallax margin-top-15 margin-bottom-15">
+	  <div class="bg-paralex grey darken-2">
+	    
+	    <img class="img-responsive" src="<%= genUrl(project.image_urls.images.length > 0 ? img : '') %>">
+	  </div>
+	  
+	</div> 
+	<% }) %> 
+	<% } %>
+	</div>
+	</div>
+</div>
+

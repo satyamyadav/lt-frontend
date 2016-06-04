@@ -1,0 +1,98 @@
+<% var ideaModalId = componentId('ideaModal') %>
+<div id="<%= ideaModalId %>">
+		<script>
+			$(function () {
+						app.components.ideaModal($("#<%= ideaModalId %>"));
+					}
+			);
+		</script>
+	<div class="modal-dialog modal-xs modal-sm modal-md modal-lg ">
+	  <div class="modal-content animated fadeInUp">
+		<div class="modal-header">
+		  <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		  <h4 class="modal-title">Share your Idea</h4>
+		</div>
+		<div class="modal-body">
+			<div class="row">
+				<form class="add-project-form">
+					<div class="col-sm-12 col-md-6">
+					  <div class="form-group">
+							<label for="title">Title</label>
+							<input required name="title" type="text" id="title" class="form-control" placeholder="give a name to your idea">
+					  </div>
+						
+					</div>
+					
+					<div class="col-sm-12 col-md-6">
+
+					  <div class="form-group">
+							<label  for="short-d">Short Description</label>
+							<input required name="short_description" type="text" class="form-control" id="short-d" placeholder="Short Description">
+					  </div>
+							
+					</div>
+					
+					<div class="col-sm-12 col-md-12">
+					  <div class="form-group">
+						<label for="idea">Idea</label>
+						<textarea required name="idea" type="text" id="idea" class="form-control" placeholder="idea"></textarea>
+					  </div>
+					</div>
+					
+				</form>
+				<div class="col-sm-12 col-md-12">
+					<div class="form-group">
+						<ul class="list-group details-preview">
+							
+						</ul>
+					</div>
+					
+				</div>
+				<div class="col-sm-12 col-md-12">
+					<div class="row">
+						
+					<form class="form-inline add-details-form">
+						<div class="col-sm-12">
+								
+							<label>Add some more detailed points</label><br/>
+						</div>
+						<div class="col-sm-12">
+					  	<div class="form-group">
+								<input type="text" class="form-control" id="title" placeholder="Title">
+							</div>
+						  <div class="form-group">
+								<input type="text" class="form-control" id="description" placeholder="Description">
+						  </div>
+					  </div>
+					  <div class="col-sm-12">
+					  	<button class="btn btn-default add-details-btn margin-top-20">Add</button>
+					  </div>
+					</form>  
+					</div>			
+				</div>
+
+				<div class="col-sm-12 col-md-12">
+					
+					<div id="image-preview" class="row margin-top-20"></div>
+					<div class="form-group upload-picker margin-top-20">
+					  <label>Add some images to illustrate</label>
+					  <input required type="file" id="uploadInput">
+					</div>
+					
+					<button class="add-project btn btn-default">Submit</button>
+				</div>
+			</div>    
+
+<style type="text/css">
+	#image-preview img {
+		width: 200px;
+		height: 200px;
+	}
+</style>
+
+
+	
+	</div>
+  </div>
+</div>  
+</div>      

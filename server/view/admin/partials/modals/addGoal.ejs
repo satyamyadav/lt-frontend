@@ -1,0 +1,45 @@
+<% var addGoalModalId = componentId('addGolaModal') %>
+
+<div id="<%= addGoalModalId %>" >
+  <script>
+    $(function () {
+        app.components.addGoalModal($("#<%= addGoalModalId %>"));
+      }
+    );
+  </script>
+
+
+  <div class="modal-dialog modal-xs modal-sm modal-md modal-lg ">
+    <div class="modal-content animated fadeInUp">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Add New Goal</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+
+        <% _.forEach(goals_categories, function(cat){ %> 
+          <div class="col-md-3 col-sm-12">
+            <div class="card card-default card-linked category" data-cat-id="<%= cat.id %>" >
+              <img src="" class="img-responsive card-img">
+              <div class="card-heading">
+                <%= cat.name %>
+              </div>
+              <div class="card-body">
+                <p></p>
+              </div>
+            </div>
+          </div>
+        <% }) %>
+
+        </div>
+
+      </div>
+<!--       <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div> -->
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div>        
+

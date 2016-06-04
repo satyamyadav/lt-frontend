@@ -1,0 +1,21 @@
+<% var pagename = _.isUndefined(pagename) ? '' : pagename %>
+<meta property="fb:app_id"          content="345345345354345" /> 
+
+
+<% if(pagename == 'resume') {%>
+  <meta property="og:title" content="<%= user.full_name %>'s Resume"/>
+  <meta property="og:url" content="<%= genUrl('resume/' + user.username) %>"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="learn together"/>
+  <meta property="og:image" content="<%= genUrl(user.picture) %>"/>
+  <meta property="og:description" content="generate your own Resume here, click"  />
+<%}%>
+
+<% if(pagename == 'homepage') {%>
+  <meta property="og:title" content="learn together"/>
+  <meta property="og:url" content=""/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="learn together"/>
+  <meta property="og:image" content=""/>
+  <meta property="og:description" content=""/>
+<%}%>

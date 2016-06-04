@@ -1,0 +1,36 @@
+<% var overviewPanId = componentId('overviewPan') %>
+
+<div id="<%= overviewPanId %>" >
+  <script>
+  $(function () {
+    app.components.overviewPan($('#<%= overviewPanId %>'));
+  });
+  </script>
+
+
+
+  <div class="overview animated fadeInUp">
+    <div class=" ">
+      <div class="row">
+      <div class="col-sm-4 padding-25">
+      <div class="card padding-40">
+        <!-- <div class="add-widgets-btn btn btn-flat"></div> -->
+        <select class="form-control add-widgets-select">
+          <option>Add a new Goal</option>
+          <% _.forEach(goals_categories, function(cat) { %>
+            <option class="text-capitalize" value="<%= cat.id %>"><%= cat.name %></option>
+          <% }) %>
+        <!-- <option>Pension Product</option>
+        <option>Other Saving Product</option>
+        <option>Direct Brokerage Account</option>
+        <option>Provident Fund</option>
+        <option>Property</option>
+        <option>Mutual Fund Investments</option>
+        <option>Gold</option> -->
+        </select>
+        </div>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

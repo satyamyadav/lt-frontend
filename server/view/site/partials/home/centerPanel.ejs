@@ -1,0 +1,23 @@
+<% var pagename = _.isUndefined(pagename) ? '' : pagename %>
+<% var loadMoreUrl = (pagename == 'homepage') ? '/' : genUrl(user.username) %>
+<div> <!-- don't remove me -->  
+
+  <div class="feed-div">
+
+
+
+
+
+    <% _.forEach(projects, function(project){ %>
+    
+      <%- include(partials.projectCard, {project: project}) %>
+
+    <% }) %>          
+
+
+  </div>
+  <div class=" text-center margin-top-30"> 
+
+    <div class="load-more btn-fa-pink" data-page="<%= page %>" data-url="<%= loadMoreUrl %>" data-partial="centerPanel" data-loading="false"> Load More </div>  
+  </div> 
+</div>

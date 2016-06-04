@@ -1,0 +1,55 @@
+<div>
+	
+			<div class="list-group default-list hide">
+				<a href="<%= genUrl('') %>" class="list-item active">
+					<i class="fa fa-home btn-round"></i>
+				 	<span>	Home </span>
+		 		</a>
+				<a href="<%= genUrl('about') %>" class="list-item">
+					<i class="fa fa-info btn-round"></i>
+					<span> About </span>
+				</a>
+
+				<% if (me) { %> 
+
+				<a href="<%= genUrl('icard/' + me.username) %>" class="list-item">
+					<i class="fa fa-info btn-round"></i>
+					<span> i-card </span>
+				</a>
+				
+				<a href="<%= genUrl('resume/' + me.username) %>" class="list-item">
+					<i class="fa fa-info btn-round"></i>
+					<span> resume </span>
+				</a>
+				
+				<% } %>
+
+				<a href="https://scrietossdg.github.io" class="list-item">
+					<i class="fa fa-github btn-round"></i>
+					<span> Github </span>
+				</a>
+			</div>
+			<h4>Find your Friends to follow</h4>
+		<div class="feed-div">
+			
+	
+		<% _.forEach(users, function(user){ %>
+
+			<%- include(partials.userWidgetSm, {user: user}) %>
+
+		<% }) %>	
+		</div>
+		<div class="row text-center margin-top-30"> 
+		  <div class=" load-more btn-fa-pink" data-page="<%= page %>" data-url="<%= genUrl('') %>" data-partial="rightPanel" data-loading="false"> Load More </div>  
+		</div>	
+
+	<!-- keep me at bottom -->
+  <% var onMobile = ['mobile', 'table'].indexOf(uaData.device.type) > -1 %>
+  
+  <% if(!onMobile) { %> 
+  
+  <!-- <span class="scroll-lock hidden-sm hidden-xs"></span>
+   -->
+  <% } %>
+  </div>
+

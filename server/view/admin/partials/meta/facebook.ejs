@@ -1,0 +1,24 @@
+<% var pagename = _.isUndefined(pagename) ? '' : pagename %>
+
+
+<% if(pagename == 'homepage') {%>
+  <meta property="og:title" content="dashboard | !"/>
+  <meta property="og:url" content="http://dashboard.com"/>
+  <meta property="og:type" content="website"/>
+  <meta property="og:site_name" content="dashboard | "/>
+  <meta property="og:image" content="http://dashboard /img/fb-meta-img.png"/>
+  <meta property="og:description" content=""/>
+
+<%}%>
+
+
+<% if(pagename == 'other') {%>
+  <meta property="og:title" content="dashboard | !"/>
+  <meta property="og:url" content=""/>
+  <meta property="og:type" content="article"/>
+  <meta property="og:site_name" content="dashboard | "/>
+   
+  <meta property="og:image" content="img url"/>
+  <meta property="og:description" content="text"/>
+
+<%}%>

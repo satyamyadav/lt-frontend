@@ -1,0 +1,39 @@
+<div id="panel" data-page-name="<%= pagename %>">
+	<% var onMobile = ['mobile', 'tablet'].indexOf(uaData.device.type) > -1 %>
+
+	<%- include(partials.profileCardLg) %>
+	<% if(onMobile) { %> 
+	<div class="container-fluid padding-top-30">
+		
+
+		<div class="col-sm-12 margin-top-60">
+			<%- include(partials.leftPanel) %>
+		</div>
+
+		<div id="" class="margin-bottom-50 margin-top-90 col-md-12 padding-0">
+			<%- include(partials.centerPanel) %>
+		</div>
+
+	</div>
+	<% } else { %>
+		<div class="container margin-top-90 padding-top-0">
+		
+			<div class="col-md-3 hidden-sm hidden-xs">
+				<%- include(partials.leftPanel) %>
+			</div>
+			
+			<div id="" class="margin-bottom-50 col-md-6">
+				
+				<%- include(partials.centerPanel) %>
+			</div>
+			
+			<div class="col-md-3 hidden-sm hidden-xs" id="right-pane">
+				<%- include(partials.rightPanel) %>
+			</div>
+
+		</div>
+	<% } %>
+
+	<%- include(partials.scrollTopBtn) %>
+
+</div>

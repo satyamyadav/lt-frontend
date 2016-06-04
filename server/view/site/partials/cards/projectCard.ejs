@@ -1,0 +1,159 @@
+<% var projectCardId = componentId('projectCard') %>
+<% var timeStamp = !_.isUndefined(project.created_at)? project.created_at.split('G')[0] : '' %>
+<% project.user.picture = !_.isUndefined(project.user.details.image_urls) ? project.user.details.image_urls[0] : 'images/user.png' %>
+<% var profileUrl = (!_.isUndefined(project.user.username) || !_.isNull(project.user.username)) ? project.user.username : 'user/' + user.id %>
+
+<div id="<%= projectCardId %>"  data-share-text="shared project" data-share-url="<%= genUrl('projects/' + project.id) %>" data-project-id="<%= project.id %>">
+  <script>
+    $(function () {
+      app.components.projectCard($('#<%= projectCardId %>'));
+    });
+  </script>
+    
+
+    <div class="card project-card padding-10 padding-top-0">
+            <% var type = !_.isNull(project.type) ? project.type : 'project' %>
+
+            <% if (type == 'project') { %> 
+              <div class="row project-meta padding-10 cyan lighten-5" style="margin-left:-10px;margin-right:-10px">
+              
+            <% } else if (type == 'idea') { %>
+              <div class="row project-meta padding-10 lime lighten-5" style="margin-left:-10px;margin-right:-10px">
+
+            <% } else if (type == 'blog') { %>
+            <div class="row project-meta padding-10 grey lighten-5" style="margin-left:-10px;margin-right:-10px">
+
+            <% } else { %> 
+            <div class="row project-meta padding-10" style="margin-left:-12px;margin-right:-10px">
+            <% } %>
+                <div class="pull-right margin-right-12">
+                  <i class="fa fa-chevron-down"></i>
+                </div>
+
+                  <p class="margin-bottom-2 margin-right-4 pull-right">
+                    <small><%= project.type %></small>
+                  </p>
+
+                  <% if (!_.isUndefined(project.user) || !_.isNull(project.user)) { %>
+                  <% var profileUrl = (!_.isUndefined(project.user.username) && !_.isNull(project.user.username)) ? project.user.username : 'user/' + user.id %>
+                <div class="padding-right-10 pull-left">
+                  <a class="" href="<%= genUrl(profileUrl) %>">
+                  
+
+                  <img title="<%= project.user.full_name.split('@')[0] %>" class="img-circle img-responsive" src="<%= genUrl(project.user.picture) %>" style="margin: 0 auto; width: 45px; height:45px ">
+                  </a>
+                </div>
+                <div class="col-sm-8 col-xs-7 user-detail padding-left-0">
+                  <p class="margin-bottom-2">
+                    
+                  <strong>
+
+                    <a href="<%= genUrl(profileUrl) %>" ><%= project.user.full_name %></a>
+                  
+                  <% } else { %>
+                  
+                    <a href="#" >Anonymous</a>
+
+                  <% } %>
+                  
+                  </strong>
+                  <span><small style="font-size:75%"> on <%= timeStamp %></small> </span>
+                  </p>
+                  <p class="margin-bottom-2">
+                    <small><%= project.user.details.bio %></small>
+                  </p>
+
+                </div>
+            </div>
+        <div>
+          <h4>
+            <a href="<%= genUrl('projects/' + project.id) %>">
+              <%= project.title %>
+            </a>
+          </h4>
+        </div>    
+        <div class="description-text">
+        
+          <p class="">
+          <%= project.short_description %> 
+          </p> 
+        </div>  
+          
+        
+
+         
+          <% if(project.image_urls.images.length > 0) { %>
+          <div class="project-img-container margin-top-15 margin-bottom-15">
+            <%#  _.forEach(project.image_urls.images, function(img){ %>
+            <div >  
+              <a href="<%= genUrl('projects/' + project.id ) %>" class="project-img" data-image-urls="<%= JSON.stringify(project.image_urls.images) %>">
+                <img class="img-responsive" src="<%= genUrl(project.image_urls.images.length > 0 ? project.image_urls.images[0] : '') %>" >
+              </a>
+            </div>
+          <%#  }) %>
+          </div>
+          <!-- <div class="project-img-container container-parallax margin-top-15 margin-bottom-15">
+            <div class="bg-paralex">
+              
+            <a href="#" class="project-img" data-image-urls="<%= JSON.stringify(project.image_urls.images) %>">
+              <img class="img-responsive" src="<%= genUrl(project.image_urls.images.length > 0 ? project.image_urls.images[0] : '') %>" style="max-height:300px; margin:0 auto">
+            </a>
+            </div>
+            <div class="content-parallax text-center link-pointer">
+              <h4 class="white-text margin-top-150 padding-5 link-pointer" style="position: absolute;bottom: 0;right: 15px;"> view more images</h4>
+            </div>
+          </div> --> 
+          <% } %>
+
+
+            <div class="" role="toolbar" aria-label="...">
+              
+              <div class="btn-group ">
+              
+                <a  class="btn btn-default  btn-sm" >
+                <i class="fa fa-arrow-up upvote-btn" data-url="<%= genUrl('project/' + project.id + '/upvote') %>"></i>
+                <span class="upvote-count"><%= project.upvotes.length %></span>
+                </a>
+              
+                
+              </div>
+              
+              <div class="btn-group comment-count">
+                <a href="" class="btn-round btn-default">
+                  <i class="fa fa-comment-o"></i>
+                  <span><%= project.comments.length %></span>
+                </a>  
+              </div>
+
+              
+
+             
+
+              <div class="btn-group pull-right">
+                <a href="" class="btn-round btn-default fb-shr-btn text-center"><i class="fa fa-facebook"></i></a>
+              </div>
+              <div class="btn-group pull-right">
+                <a href="" class="btn-round btn-default twt-shr-btn text-center"><i class="fa fa-twitter"></i></a>
+             </div>
+
+            
+             </div>
+          
+            <form class="form">
+                <div class="comments grid-spaces" style="display:none">  
+                  <div class="">
+                    <div class="">
+            <hr/>
+                      <div class="comment-list"></div>
+                      <div class="input-group">
+                        <input type="text" class="form-control comment-input" placeholder="Write your comment here" data-url="<%= genUrl('project/' + project.id + '/comment') %>">
+                        <span class="input-group-btn">
+                          <button class="btn btn-default post-comment-btn" type="button">Add</button>
+                        </span>
+                      </div>
+                    </div>  
+                </div>
+              </div>
+            </form>
+  </div>
+</div>

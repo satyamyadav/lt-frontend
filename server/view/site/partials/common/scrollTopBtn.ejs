@@ -1,0 +1,11 @@
+<div class="container  margin-bottom-15">
+<% var scrollTopBtnId = componentId('scrollTopBtn') %>
+	<div id="<%= scrollTopBtnId %>">
+	  <script>
+	    $(function () {
+	      app.components.scrollTopBtn($('#<%= scrollTopBtnId %>'));
+	    });
+	  </script> 
+		  <div class="btn scroll-top-btn pull-right"><i class="fa fa-arrow-up"></i></div>
+	</div>
+</div>

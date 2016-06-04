@@ -1,0 +1,56 @@
+<% var timeStamp = !_.isUndefined(project.created_at)? project.created_at.split('G')[0] : '' %>
+
+<% var avatar = !_.isUndefined(project.user.picture) ? project.user.picture : 'images/user.png' %>
+
+<div class="margin-0  card ">
+	<div class="row indigo lighten-4" >
+		<div class="container-parallax">
+			<div class="bg-parallax" style="max-height: 400px">
+          <% if(project.image_urls.images.length > 0) { %>
+        
+            <img class="" src="<%= genUrl(project.image_urls.images.length > 0 ? project.image_urls.images[0] : '') %>" >
+
+          <% } else { %> 
+          	<div class="teal lighten-2 padding-200"></div>
+          <% } %>
+				
+			</div>
+			<div class="content-parallax">
+			<div class="container padding-top-100">
+				<div class="col-sm-12">
+					<h2 class="white-text text-lighten-2 text-center"><%= project.title %></h2>
+				</div>
+			</div>
+			<div class="col-sm-12 padding-top-30 text-center">
+				    
+				      <% if (!_.isUndefined(project.user) || !_.isNull(project.user)) { %>
+				      <% var profileUrl = (!_.isUndefined(project.user.username) && !_.isNull(project.user.username)) ? project.user.username : 'user/' + user.id %>
+				      <a class="" href="<%= genUrl(profileUrl) %>">
+				     		<img title="<%= project.user.full_name.split('@')[0] %>" class="img-circle img-responsive" src="<%= genUrl(avatar) %>" style="margin: 0 auto; width: 100px; height:100px ">
+				      </a>
+				      <p class="white-text margin-bottom-2">
+				        
+				      <strong>
+
+				        <a class="white-text" href="<%= genUrl(profileUrl) %>" >
+					        <h4 class="white-text">
+					        	<%= project.user.full_name %>
+					        </h4>
+				        </a>
+				      
+				      <% } else { %>
+				      
+				        <a href="#" >Anonymous</a>
+
+				      <% } %>
+				      
+				      </strong>
+				      <i class="white-text"><%= project.user.details.bio %></i>
+				      </p>
+				      
+			</div>
+			</div>
+		</div>
+	</div>
+	
+</div>

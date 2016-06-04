@@ -1,0 +1,23 @@
+<% var profileUrl = !_.isUndefined(user.username) && !_.isNull(user.username) ? user.username : 'user/' + user.id %>
+<div class="margin-12">
+	<div class="row">
+		<div class="col-sm-4 padding-right-0">
+			<% if(!_.isNull(user.picture) && !_.isUndefined(user.picture)  > 0) { %> 
+			<img title="profile image" class="img-circle img-responsive" src="<%= genUrl(user.picture) %>" style="margin: 0 auto; width: 60px; height:60px; border:2px solid #DEE3E4 ">
+			<% } else { %> 
+				<img title="profile image" class="img-circle img-responsive" src="<%= genUrl('images/user.png') %>" style="margin: 0 auto">
+			<% } %>
+		</div>
+		<div class="col-sm-8 ">
+			<h4 class="margin-bottom-5">
+				<a href="<%= genUrl( profileUrl ) %>">
+					<%= user.full_name %>
+				</a> 
+			</h4>
+
+			<span><small><%= !_.isNull(user.details) ? user.details.department : '' %></small></span>
+			<!-- <div class="btn">Follow</div> -->
+			<%- include(partials.followBtn) %>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,31 @@
+<%- include(partials.top) %>
+<!-- body starts here -->
+
+	<div class="" id="alert-box"></div>
+
+
+	<%- include(partials.sidebarLeft) %>
+	<%- include(partials.modals) %>
+
+
+		<%- include(partials.nav) %>
+
+
+
+		<% var pagename = _.isUndefined(pagename) ? 'homepage' : pagename %>
+		
+		
+		<% if(pagename == 'homepage'){ %> 
+		<%- include(partials.banner, {pagename: pagename}) %>
+		<% } %>
+
+
+
+		<%- include(partials.panel, {pagename: pagename}) %>
+		
+		
+		<%- include(partials.footer) %>
+	
+
+<!-- body ends here -->
+<%- include(partials.bottom) %>

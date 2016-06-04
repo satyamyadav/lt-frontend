@@ -1,0 +1,321 @@
+<% var resume = user.details.resume %>
+<div id="resume">
+<div id="resume-print">
+	
+<div class="row resume-template-default "> 
+
+
+	<div class="card col-sm-12 padding-30 yellow lighten-5" >
+
+
+
+
+		<div>
+
+
+		      <!-- title name cv-->
+		      <header class="text-center ">
+		        <h1 class="text-capitalize black-text"><%= resume.basics.name %></h1>
+		        <p class="lead grey-text">
+		          <%= resume.basics.label %>
+		        </p>
+		      </header><!--/ title name cv-->
+
+		      <hr>
+
+		      <div class="row">
+
+		        <!-- column left -->
+		        <div class="col-md-7">
+
+		          <!-- about me -->
+		          <section class="cv-section">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// About Me</h3>
+
+		            <article >
+
+		              <div class="row">
+
+		                <!-- <div class="col-sm-4 col-sm-push-8 text-center">
+
+		                <img title="profile image" class="img-circle img-responsive" src="<%= genUrl(user.picture) %>" style="margin: 0 auto; width: 100px; height:100px; border:2px solid #DEE3E4 ">
+		                </div> -->
+
+		                <div class="col-xs-12 col-sm-12 ">
+
+		                  <p class="padding-left-20">
+		                    <%= resume.basics.summery %>
+		                  </p>
+
+		                </div>
+
+		              </div>
+
+		            </article>
+
+		          </section><!--/ about me -->
+
+		          <!-- experiences -->
+		          <div >
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Experiences</h3>
+
+
+            <% _.forEach(resume.work, function (profile, i) { %> 
+              
+              <div class="">
+                <div class="col-sm-12">
+									<h3><%= resume.work[i].company %></h3>
+                </div>
+              </div>
+              
+              <div class="col-sm-12">
+								<p><%= resume.work[i].website %></p>
+              </div>
+                
+                <div class="col-sm-6 teal-text">
+                  <h4><%= resume.work[i].position %></h4>
+                </div>
+
+              <div class="col-sm-6 teal-text padding-top-10">
+                  <span>  <%= resume.work[i].startDate %> to <%= resume.work[i].endDate %></span>
+              </div>
+
+              
+                <div class="col-sm-12">
+              		<b>Summery:</b>
+									<p class="padding-left-10"><%= resume.work[i].summery %></p>
+                </div>
+              
+                <div class="col-sm-12">
+              		<b>Accomplishments:</b>
+									<p class="padding-left-10"><%= resume.work[i].highlights %></p>
+                </div>
+            <% }) %>  
+		          </div><!--/ experiences -->
+
+
+
+		          <!-- education -->
+		          <div class="col-sm-12 padding-0">
+		          	
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Education</h3>
+
+
+		            <% _.forEach(resume.education, function (edu, i) { %> 
+
+		            	<div class="row margin-0">
+		            		<div class="col-sm-12">
+
+		              <h4>
+		              	<strong><%= edu.institution %></strong>
+		              </h4>
+
+		              <b>
+		              	<%= edu.university %>
+		              </b>
+		            			
+		            		</div>
+
+		            		<div class="col-sm-12">
+		            			
+				              <div class="">
+				              	<%= edu.endDate %>
+				              	to
+				              	<%= edu.startDate %>
+				              </div>
+		            		</div>
+		            	</div>
+		            	<div class="row margin-0 padding-10 teal-text">
+
+			              <div class="col-sm-8">
+			              	<%= edu.field %>
+			              </div>
+
+			              <div class="col-sm-4">
+			              	<%= edu.gpa %>
+			              </div>
+		            	
+		            	</div>
+		              <hr/>
+		            <% }) %>  
+
+							</div>		            
+
+
+
+		        </div><!--/ column left -->
+
+		        <!-- column right -->
+		        <div class="col-md-5">
+
+		          <!-- contact -->
+		          <section class="cv-section wow" data-wow-delay=".5s" style="visibility: visible; animation-delay: 0.5s;">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Contact</h3>
+		          <div class="padding-left-10">  
+		            <article class="media">
+
+		              <div class="pull-left">
+		                <span class="fa fa-phone  btn-square teal lighten-2 white-text"></span>
+		              </div>
+		              <div class="media-body teal-text"><%= resume.basics.mobile %></div>
+
+		            </article>
+
+		            <article class="media">
+
+		              <div class="pull-left">
+		                <span class="fa fa-envelope btn-square teal lighten-2 white-text "></span>
+		              </div>
+		              <div class="media-body teal-text"><%= resume.basics.email %></div>
+
+		            </article>
+
+		            <article class="media">
+
+		              <div class="pull-left">
+		                <span class="fa fa-map-marker btn-square teal lighten-2 white-text "></span>
+		              </div>
+		              <div class="media-body teal-text"><%= resume.basics.location.address %></div>
+		              <div class="media-body teal-text"><%= resume.basics.location.city %>-<%= resume.basics.location.pin %></div>
+
+		            </article>
+
+		            <article class="media">
+
+		              <div class="pull-left">
+		                <span class="fa fa-calendar-o btn-square teal lighten-2 white-text "></span>
+		              </div>
+		              <div class="media-body teal-text"><%= resume.basics.dob %></div>
+
+		            </article>
+		          </div>  
+		          </section><!--/ contact -->
+
+		          <section>
+		          	<h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Social Profiles</h3>
+		          	<% _.forEach(resume.basics.profiles, function (profile, i) { %> 
+		          	  <div class="media padding-left-10">
+		          	  	
+		          	  <a href="<%= 'http://' + profile.network + '.com/' + profile.username %>">
+		          	  	<span class="media-body"><%= profile.network %></span>  <div class="media-body"><%= profile.username %></div> 
+		          	  </a>
+		          	  </div>
+
+		          	<% } ) %>  
+		          </section>
+
+
+
+		          <!-- skills -->
+		          <section class="cv-section">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Skills</h3>
+		            <div class="padding-left-10">
+		            	
+		            <% _.forEach(resume.skills, function (skill, i) { %> 
+		              
+		              <h4><%= skill.name %></h4>
+		              <p><%= skill.keywords %></p>
+
+		            <% }) %>  
+
+		            </div>
+		          </section><!--/ skills -->
+
+		          <!-- awards -->
+		          <section class="cv-section">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// awards</h3>
+
+		            <div class="padding-left-10">
+		            	
+		            <% _.forEach(resume.awards, function (award, i) { %> 
+
+		            	<h4>
+		            		<%= award.awarder %>
+		            	</h4>
+
+		            	<div>
+		            		<%= award.date %>
+		            	</div>
+
+		            	<p>
+		            		<b><%= award.title %></b>
+		            	</p>
+
+		            <% }) %>  
+
+		            </div>
+		            
+
+		          </section>
+		          <!-- hobbies -->
+		          <section class="cv-section">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// Hobbies</h3>
+
+		            <article class="padding-left-10">
+
+		              <p><%= resume.hobbies %></p>
+
+		            </article>
+
+		          </section><!--/ hobbies -->
+
+		          <section class="cv-section">
+
+		            <h3 class="text-uppercase black-text margin-top-30 margin-bottom-20">// References</h3>
+
+		            <div class="padding-left-10">
+		            	
+		            <% _.forEach(resume.references, function (reference, i) { %> 
+
+		            	<div>
+		            		<%= reference.name %>
+		            	</div>
+
+		            	<div>
+		            		<%= reference.reference %>
+		            	</div>
+
+
+		            <% }) %>  
+
+		            </div>
+		            
+
+		          </section>
+
+		        </div><!--/ column right -->
+
+		      </div>
+
+		    </div>
+	</div>
+</div>
+</div>
+
+		<% if (me && (me.id == user.id) ) { %>
+
+		      <!-- button download PDF -->
+		      <div class="text-center hidden-print">
+		        <a href="#" title="Donwload Resume PDF" class="btn btn-primary-outline btn-lg download-resume">
+		          <i class="fa fa-download"></i>&nbsp; Download PDF
+		        </a>
+		      </div><!--/ button download PDF -->
+<% } %>
+</div>
+
+
+
+
+
+
+
+
+
+
+

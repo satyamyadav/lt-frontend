@@ -1,0 +1,58 @@
+<div id="panel" data-page-name="<%= pagename %>">
+	<% var onMobile = ['mobile', 'tablet'].indexOf(uaData.device.type) > -1 %>
+
+
+	<% if(onMobile) { %> 
+	<div class="container-fluid padding-top-30">
+		
+
+		<div class="col-sm-12 margin-top-60">
+			<%- include(partials.leftPanel) %>
+		</div>
+
+		<div id="" class="margin-bottom-50 margin-top-50 col-md-12 padding-0">
+			<%- include(partials.centerPanel) %>
+		</div>
+
+	</div>
+	<% } else { %>
+		<div class="container margin-top-25 padding-top-0">
+		
+			<div class="col-md-3 hidden-sm hidden-xs">
+				<%- include(partials.leftPanel) %>
+			</div>
+			
+			<div id="" class="margin-bottom-50 col-md-6">
+				<div class="card card-default">
+					<div class="card-heading">
+						<p class="teal-text">Start sharing your ideas, showcase your Projects and write Blog Posts !!</p>
+					</div>
+
+					<div class="row padding-10">
+						
+						<div class="col-sm-4">
+							<%- include(partials.addProjectBtn) %>
+						</div>
+						
+						<div class="col-sm-4">
+							<%- include(partials.addIdeaBtn) %>
+						</div>
+						
+						<div class="col-sm-4">
+							<%- include(partials.addPostBtn) %>
+						</div>
+					</div>
+				</div>
+				<%- include(partials.centerPanel) %>
+			</div>
+			
+			<div class="col-md-3 hidden-sm hidden-xs" id="right-pane">
+				<%- include(partials.rightPanel) %>
+			</div>
+
+		</div>
+	<% } %>
+
+	<%- include(partials.scrollTopBtn) %>
+
+</div>

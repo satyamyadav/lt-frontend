@@ -1,0 +1,26 @@
+<% var followBtn = componentId('followBtn') %>
+<div id="<%= followBtn %>" >
+  <script>
+  $(function () {
+    app.components.followBtn($('#<%= followBtn %>'));
+  });
+  </script>
+
+  <% if (!me || me && me.id != user.id) { %>  
+    <% if (me && isFollowing(user, me.id)) { %>
+      <a class = "link btn-full followBtn following" data-target="<%= '/unfollow/'+user.id %>" data-state="following" data-user-id="<%=user.id%>" data-username=" <%= user.username%>" >Following</a>
+            
+    <% } else { %>
+      <a class = " link btn-full followBtn" data-target="<%= '/follow/'+user.id %>" data-state="not-following" data-user-id="<%=user.id%>" data-username=" <%= user.username%>"   data-pagename="<%= pagename %>" >Follow</a>
+   
+    <%}%>
+    <% if (user.followers.length > 0) { %>
+      <small> <i class="followersCount"><%= (user.followers.length) %></i> follower </small>
+
+    <% } else if (user.followers.length > 1) { %>
+    
+      <small> <i class="followersCount"><%= (user.followers.length) %></i> followers </small>
+    <% } %>
+  <%}%>
+  
+</div>

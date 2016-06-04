@@ -1,0 +1,96 @@
+<% var goalFormId = componentId('goalForm'+ category.id) %>
+
+<div id="<%= goalFormId %>" data-category="<%= category.id %>" data-type="<%= category.type %>" >
+  <script>
+  $(function () {
+    app.components.goalFormHouse($('#<%= goalFormId %>'));
+  });
+  </script>
+
+     
+  <form id="goal-form" class="steps-container" data-url="<%= genUrl('addgoal') %>" data-user-id="<%= me.id %>">
+    <h3 class="text-capitalize">New goal: <%= category.name %></h3>
+    <div id="form-steps-container">
+      
+      <h3>
+        
+      </h3>
+      <section>
+        <div class="row">
+          <div class="col-sm-6">
+            <h5 class=""><%= category.questions[0] %></h5>    
+            <div class="form-group">
+              <div class="list-group nav-pills nav-stacked options-1" role="tablist">
+                <a class="btn" role="tab" data-toggle="tab"  href="#buyHouse" >Yes</a>
+                <a class="btn" role="tab" data-toggle="tab"  href="#buyNoHouse" >No</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <h3>
+        
+      </h3>
+      <section>
+        <div class="row tab-content">
+          <div class="col-sm-12 tab-pane" role="tabpanel" id="buyHouse">
+            <div class="row">
+              <div class="form-group col-sm-3">
+                <h5 class=""><%= category.questions[1] %></h5>
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="location">
+                </div>    
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="form-group col-sm-3">
+              <h5 class=""><%= category.questions[2] %></h5>    
+                <label >Target year</label>
+                <input type="text" name="duration" placeholder="target year" class="form-control" list="target-years" required>
+                <datalist id="target-years" name="target">
+                  <% for(var i = 0; i < 9; i++) { %>
+                  <option><%= 2015 + i %></option>
+                  <% } %>
+                </datalist>
+              </div>
+            </div>
+          </div>
+          
+          <div class="tab-pane" role="tabpanel" id="buyNoHouse">
+            <h4>come back soon</h4>
+          </div>
+
+        </div>
+      </section>
+      
+      <h3>
+       
+      </h3>
+      <section>  
+        
+        <div class="" >
+          <div class="house-list">
+          <% _.forEach(category.houses, function (h) { %>
+            <div class="col-sm-3">
+              <div class="card card-default card-linked house" data-name="<%= h.name %>" data-amount="<%= h.price %>">
+                <img src="<%= h.img %>" class="img-responsive card-img">
+                <div class="card-heading"><%= h.name %></div>
+                <div class="card-body">
+                  <p><%= h.price %></p>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-12 padding-30">
+            <div class="btn btn-zam pull-left post-form-btn">Add</div>
+          </div>
+        </div>
+      </section>
+    </div>
+  </form>
+</div>

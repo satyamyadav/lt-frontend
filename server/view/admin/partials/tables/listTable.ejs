@@ -1,0 +1,50 @@
+
+<!-- data and keys required , look at fn/fake.table -->
+<!-- keys will become header and object's values for keys go to row -->
+<!-- it will be a list with columns of your key count -->
+
+<% var listTableId = componentId('listTable') %>
+
+<div id="<%= listTableId %>" >
+	<script>
+	$(function () {
+		app.components.listTable($('#<%= listTableId %>'));
+	});
+	</script>
+
+  <div class="list-group list-table animated fadeInUp">
+      <% _.forEach(data, function(row) { %>
+      <div class="row list-group-item table-row" data-id="<%= row.id %>" data-type="<%= type %>" style="mouse:pointer">
+        <% _.forEach(keys, function(key) { %>
+          <div class="text-capitalize col-xs-<%= Math.floor(12/keys.length) %>">
+						<a href="#">
+							<span><small class="text-muted"><%= key.replace('_', ' ') %></small></span>
+              <p class="list-group-item-heading">
+                  <%= row[key] %>
+              </p>
+						</a>
+          </div>
+      <% }) %>
+      </div>
+      <% }) %>
+  </div>
+
+
+	<div class="table-detail-pan row animated fadeInUp" style="display:none; margin-top:-160px; margin-bottom:-15px; position:relative">
+		<div class="btn-square close-btn pull-right">
+			<i class="fa fa-close zam-grey-text"></i>
+		</div>
+		<a class="btn-square full-screen-btn pull-right" href="">
+			<i class="fa fa-expand zam-grey-text"></i>
+		</a>
+		<div id="table-detail">
+			<div class="row">
+				<div class="col-sm-4 col-sm-offset-4 padding-20">
+					<%- include(partials.preloader, {size:'big'}) %>
+				</div>
+
+			</div>
+  	</div>
+	</div>
+
+</div>

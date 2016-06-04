@@ -1,0 +1,28 @@
+<% var projectModalId = componentId('projectModal') %>
+<div id="<%= projectModalId %>">
+        <script>
+            $(function () {
+                        app.components.projectModal($("#<%= projectModalId %>"));
+                    }
+            );
+        </script>
+  <div class="modal-dialog modal-xs modal-sm modal-md modal-lg ">
+    <div class="modal-content animated fadeInUp">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title">Update Your Profile</h4>
+      </div>
+      <div class="modal-body">
+
+      <div class="row">
+      <% if(me) { %> 
+        <%- include(partials.updateProfileForm) %>
+      <% } %>
+
+      </div>
+
+
+    </div>
+    </div>
+  </div>
+</div>        

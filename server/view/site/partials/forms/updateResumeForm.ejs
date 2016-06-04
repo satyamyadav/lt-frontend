@@ -1,0 +1,281 @@
+<% var updateResumeFormId = componentId('updateResumeForm') %>
+
+<div id="<%= updateResumeFormId %>"  data-user-id="<%= me.id %>">
+        <script>
+            $(function () {
+                        app.components.updateResumeForm($("#<%= updateResumeFormId %>"));
+                    }
+            );
+        </script>
+
+<% if (me && me.id == user.id) { %>
+      <div class="panel panel-default sign-up margin-bottom-1" style="">
+        <div class="panel-heading text-center">
+          <div class="panel-title">Update</div>
+            <!-- <div class="">
+              <a id="signinlink" href="#">Sign In</a>
+            </div> -->
+          </div>  
+          <div class="panel-body" >
+
+              <form id="resume-form" method="post" class="form-horizontal" role="form">
+              <h4>Basics</h4>  
+              <div class="form-group">
+                <div class="col-sm-12">
+
+                  <input type="text" class="form-control " name="basics[name]" placeholder="Full name" value="<%= me.details.resume.basics.name %>" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[label]" placeholder="Label" value="<%= me.details.resume.basics.label %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[summery]" placeholder="Summery" value="<%= me.details.resume.basics.summery %>" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="email" class="form-control " name="basics[email]" placeholder="email" value="<%= me.details.resume.basics.email %>" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="basics[dob]" placeholder="Date of birth" value="<%= me.details.resume.basics.dob %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="number" class="form-control " name="basics[mobile]" placeholder="mobile" value="<%= me.details.resume.basics.mobile %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[location][city]" placeholder="City" value="<%= me.details.resume.basics.location.city %>" >
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[location][address]" placeholder="Address" value="<%= me.details.resume.basics.location.address %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[location][pin]" placeholder="PIN" value="<%= me.details.resume.basics.location.pin %>" >
+                </div>
+              </div>
+            
+            <h4>Social Profiles</h4>
+            <% _.forEach(me.details.resume.basics.profiles, function (profile, i) { %> 
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[profiles][<%= i %>][network]" placeholder="Network" value="<%= me.details.resume.basics.profiles[i].network %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="basics[profiles][<%= i %>][username]" placeholder="username" value="<%= me.details.resume.basics.profiles[i].username %>" >
+                </div>
+              </div>
+
+            <% } ) %>  
+
+
+            <h4>Work</h4>
+            <% _.forEach(me.details.resume.work, function (profile, i) { %> 
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="work[<%= i %>][startDate]" placeholder="start date" value="<%= me.details.resume.work[i].startDate %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="work[<%= i %>][endDate]" placeholder="end date" value="<%= me.details.resume.work[i].endDate %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="work[<%= i %>][position]" placeholder="Position" value="<%= me.details.resume.work[i].position %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="work[<%= i %>][company]" placeholder="Company" value="<%= me.details.resume.work[i].company %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="work[<%= i %>][website]" placeholder="website" value="<%= me.details.resume.work[i].website %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="work[<%= i %>][summery]" placeholder="summery" value="<%= me.details.resume.work[i].summery %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="work[<%= i %>][highlights]" placeholder="Highlights" value="<%= me.details.resume.work[i].highlights %>" >
+                </div>
+              </div>
+
+            <% }) %>  
+
+              <h4>Awards</h4>
+            <% _.forEach(me.details.resume.awards, function (profile, i) { %> 
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="awards[<%= i %>][title]" placeholder="title" value="<%= me.details.resume.awards[i].title %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="awards[<%= i %>][date]" placeholder="date" value="<%= me.details.resume.awards[i].date %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="awards[<%= i %>][awarder]" placeholder="awarder" value="<%= me.details.resume.awards[i].awarder %>" >
+                </div>
+              </div>
+
+            <% }) %>  
+
+            <h4>Skills</h4>
+            <% _.forEach(me.details.resume.skills, function (profile, i) { %> 
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="skills[<%= i %>][name]" placeholder="name" value="<%= me.details.resume.skills[i].name %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="skills[<%= i %>][keywords]" placeholder="keywords" value="<%= me.details.resume.skills[i].keywords %>" >
+                </div>
+              </div>
+
+            <% }) %>  
+              <h4>Hobbies</h4>
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="hobbies" placeholder="hobbies" value="<%= me.details.resume.hobbies%>" >
+                </div>
+              </div>
+              
+              <h4>References</h4>
+            <% _.forEach(me.details.resume.references, function (profile, i) { %> 
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="references[<%= i %>][reference]" placeholder="reference" value="<%= me.details.resume.references[i].reference %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="references[<%= i %>][name]" placeholder="name" value="<%= me.details.resume.references[i].name %>" >
+                </div>
+              </div>
+
+            <% }) %>  
+
+            <h4>Education</h4>
+            <% _.forEach(me.details.resume.education, function (edu, i) { %> 
+
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="education[<%= i %>][institution]" placeholder="institution" value="<%= me.details.resume.education[i].institution %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="education[<%= i %>][university]" placeholder="university/board" value="<%= me.details.resume.education[i].university %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="education[<%= i %>][startDate]" placeholder="start date" value="<%= me.details.resume.education[i].startDate %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="date" class="form-control " name="education[<%= i %>][endDate]" placeholder="end date" value="<%= me.details.resume.education[i].endDate %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="education[<%= i %>][field]" placeholder="field of study" value="<%= me.details.resume.education[i].field %>" >
+                </div>
+              </div>
+              
+              <div class="form-group">
+                <div class="col-sm-12">
+                  <input type="text" class="form-control " name="education[<%= i %>][gpa]" placeholder="gpa" value="<%= me.details.resume.education[i].gpa %>" >
+                </div>
+              </div>
+
+            <% }) %>  
+              
+
+             
+<!-- 
+              <div id="image-preview" class="row">
+                <img class="image-resposive" style="height:200px;width:200px" src="<%= genUrl(me.picture) %>">
+              </div>
+              <div class="form-group upload-picker margin-top-20 margin-bottom-20">
+                <div class="col-sm-12">
+                  
+                  <label>Add Profile picture</label>
+                  <input required type="file" id="uploadInput">
+                </div>
+              </div> -->
+              <p><input type="submit" /></p>
+
+              </form>
+
+
+              <style type="text/css">
+                  #image-preview img {
+                      width: 300px;
+                      height: 300px;
+                      margin: 0 auto;
+                  }
+              </style>  
+               
+              
+
+
+              
+          </div>
+        </div>
+<% } %>
+
+</div>
+    
