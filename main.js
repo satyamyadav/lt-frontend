@@ -56,9 +56,10 @@ if (process.env.NODE_ENV === 'production') {
   // use redis in production, where the app is being run in a process cluster
   var RedisStore = require('connect-redis')(session);
   options.store = new RedisStore({
-    host: 'localhost',
-    port: 6379,
     prefix: 'lt.sess.'
+    host: 'pub-redis-15073.us-east-1-4.3.ec2.garantiadata.com',
+    port: '15073',
+    password: 'scrietredis'
 
   });
 } else {
