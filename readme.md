@@ -1,3 +1,17 @@
+its api is here : [lt-api](https://github.com/satyamyadav/lt-api)
+
+if you have api running on localhost:3030 then follow the steps below:
+
+
+* clone the repository and cd into the folder where it is cloned
+* run chown -R yourusername /path/to/global/node_modules/folder
+* run ./setup.sh from repository root and let it finish
+* run ./bin/dev_start.sh to start the local server
+* go to localhost:5000 in your browser
+
+
+
+
 Learn Together :
 ======================================================================
 This project is aimed to develop an online protal to share projects and
