@@ -5,7 +5,7 @@ var production = {
     publicDir: __dirname + '/../public',
     uploadsDir: __dirname + '/../storage/uploads',
     sessionDir: __dirname + '/../storage/sessions',
-    apiBase: 'http://ossdg-api.herokuapp.com'
+    apiBase: 'http://lt-node-api.herokuapp.com'
 };
 var staging = {
     port: 3000,
@@ -25,5 +25,5 @@ var development = {
 
 
 module.exports = {
-    app: development
+    app: production
 };
