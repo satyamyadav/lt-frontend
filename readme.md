@@ -36,7 +36,7 @@ to improve collaborative learning within colleges, universities or schools.
 ###Framework
 ==========================================================================
 
-It is a expressjs based server side rendering, jquery single page app with proper routing.
+`It is a expressjs based server side rendering, jquery single page app with proper routing.`
 
 ##How it works 
 
@@ -51,29 +51,32 @@ It is a expressjs based server side rendering, jquery single page app with prope
 
 
 
-Screenshots:
+##Screenshots:
 
-[Imgur](http://i.imgur.com/OXSpu5F.png)
-[Imgur](http://i.imgur.com/9JGmY8J.png)
-[Imgur](http://i.imgur.com/5QGs990.png)
-[Imgur](http://i.imgur.com/G8dbsnw.png)
-[Imgur](http://i.imgur.com/RaImWjd.png)
-[Imgur](http://i.imgur.com/4h65HAq.png)
-[Imgur](http://i.imgur.com/eapsFyk.png)
-[Imgur](http://i.imgur.com/NO4kpdx.png)
-[Imgur](http://i.imgur.com/dC3l2qQ.png)
-[Imgur](http://i.imgur.com/P4p2VmF.png)
-[Imgur](http://i.imgur.com/ovDJJBG.png)
-[Imgur](http://i.imgur.com/zVX5y1e.png)
-[Imgur](http://i.imgur.com/KWVg74E.png)
-[Imgur](http://i.imgur.com/zXVV8ip.png)
-[Imgur](http://i.imgur.com/k3nvoT1.png)
-[Imgur](http://i.imgur.com/RsaRoZR.png)
-[Imgur](http://i.imgur.com/HWIBgVE.png)
-[Imgur](http://i.imgur.com/TaUI7e5.png)
-[Imgur](http://i.imgur.com/KnRbtCo.png)
+===========================================================================================
+
+![Imgur](http://i.imgur.com/OXSpu5F.png)
+![Imgur](http://i.imgur.com/9JGmY8J.png)
+![Imgur](http://i.imgur.com/5QGs990.png)
+![Imgur](http://i.imgur.com/G8dbsnw.png)
+![Imgur](http://i.imgur.com/RaImWjd.png)
+![Imgur](http://i.imgur.com/4h65HAq.png)
+![Imgur](http://i.imgur.com/eapsFyk.png)
+![Imgur](http://i.imgur.com/NO4kpdx.png)
+![Imgur](http://i.imgur.com/dC3l2qQ.png)
+![Imgur](http://i.imgur.com/P4p2VmF.png)
+![Imgur](http://i.imgur.com/ovDJJBG.png)
+![Imgur](http://i.imgur.com/zVX5y1e.png)
+![Imgur](http://i.imgur.com/KWVg74E.png)
+![Imgur](http://i.imgur.com/zXVV8ip.png)
+![Imgur](http://i.imgur.com/k3nvoT1.png)
+![Imgur](http://i.imgur.com/RsaRoZR.png)
+![Imgur](http://i.imgur.com/HWIBgVE.png)
+![Imgur](http://i.imgur.com/TaUI7e5.png)
+![Imgur](http://i.imgur.com/KnRbtCo.png)
 
 
+more here
 
 <blockquote class="imgur-embed-pub" lang="en" data-id="a/O7Dhq"><a href="//imgur.com/a/O7Dhq">learn-together</a></blockquote><script async src="//s.imgur.com/min/embed.js" charset="utf-8"></script>
 
