@@ -5,8 +5,9 @@ var production = {
     publicDir: __dirname + '/../public',
     uploadsDir: __dirname + '/../storage/uploads',
     sessionDir: __dirname + '/../storage/sessions',
-    apiBase: 'http://lt-node-api.herokuapp.com'
+    apiBase: 'http://site.com'
 };
+
 var staging = {
     port: 3000,
     publicDir: __dirname + '/../public',
