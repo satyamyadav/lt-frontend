@@ -1,7 +1,7 @@
 require('./appRequire')();
 require('app-module-path').addPath(__dirname + '/server');
 
-var bodyParser = require('body-parser'); 
+var bodyParser = require('body-parser');
 
 // So that JSON.stringify(date) doesn't fuck things up
 Date.prototype.toJSON = Date.prototype.toString;
@@ -56,7 +56,7 @@ if (process.env.NODE_ENV === 'production') {
   // use redis in production, where the app is being run in a process cluster
   var RedisStore = require('connect-redis')(session);
   options.store = new RedisStore({
-    prefix: 'lt.sess.',
+    prefix: 'ltf.prod',
     host: 'pub-redis-15073.us-east-1-4.3.ec2.garantiadata.com',
     port: '15073',
     password: 'scrietredis'
@@ -70,7 +70,7 @@ if (process.env.NODE_ENV === 'production') {
 app.use(session(options));
 
 
-// passportJs support  
+// passportJs support
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -114,5 +114,3 @@ app.use(routes);
 app.listen(app.get('port'), function() {
   console.log('Node app is running on port', app.get('port'));
 });
-
-
