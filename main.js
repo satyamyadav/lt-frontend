@@ -52,7 +52,8 @@ var options = {
   cookie: {maxAge: 24 * 60 * 60 * 1000 /* one day in microseconds */}
 };
 
-if (process.env.NODE_ENV === 'production') {
+// if (process.env.NODE_ENV === 'production') {
+if (false) {
   // use redis in production, where the app is being run in a process cluster
   var RedisStore = require('connect-redis')(session);
   options.store = new RedisStore({
