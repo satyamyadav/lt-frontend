@@ -3035,23 +3035,22 @@ app.utils.redirectTo = function (path) {
 
 app.utils.reloadNavAndPanel = function () {
     NProgress.start();
-    //location.reload();
-    return;
+    return location.reload();
+    
     app.utils.ajax.get(app.utils.currentUrl(true), {
         data: {
             partials: ['nav', 'panel', 'sidebarRight']
         }
     }).then(function (data) {
-        NProgress.done();
-        //location.reload();
-        var el = document.createElement('div');
-        el.innerHTML = data;
-        var $el = $(el);
-        app.$body.find('#nav').html($el.find('#nav').html());
-        app.$body.find('#panel').html($el.find('#panel').html());
+        //NProgress.done();
+        //var el = document.createElement('div');
+        //el.innerHTML = data;
+        //var $el = $(el);
+        //app.$body.find('#nav').html($el.find('#nav').html());
+        //app.$body.find('#panel').html($el.find('#panel').html());
         //app.$body.find('#panel').html(data.panel);
         //console.log(data.panel, app.$body.find('#panel'));
-        app.$body.find('#right-sidebar').html($el.find('#right-sidebar').html());
+        //app.$body.find('#right-sidebar').html($el.find('#right-sidebar').html());
         
     });
 };
