@@ -58,10 +58,8 @@ if (false) {
   var RedisStore = require('connect-redis')(session);
   options.store = new RedisStore({
     prefix: 'dev.api.',
-    host: 'pub-redis-15073.us-east-1-4.3.ec2.garantiadata.com',
-    port: '15073',
-    password: 'scrietredis'
-
+    host: 'localhost',
+    port: '15073'
   });
 } else {
   var FileStore = require('session-file-store')(session);
